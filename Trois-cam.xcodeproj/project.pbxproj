@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		579AEADD23D4A07D00FD5D4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AEADC23D4A07D00FD5D4B /* AppDelegate.swift */; };
+		579AEADF23D4A07D00FD5D4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AEADE23D4A07D00FD5D4B /* SceneDelegate.swift */; };
+		579AEAE123D4A07D00FD5D4B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AEAE023D4A07D00FD5D4B /* MainView.swift */; };
+		579AEAE323D4A08100FD5D4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579AEAE223D4A08100FD5D4B /* Assets.xcassets */; };
+		579AEAE623D4A08100FD5D4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579AEAE523D4A08100FD5D4B /* Preview Assets.xcassets */; };
+		579AEAF123D4A0C400FD5D4B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AEAF023D4A0C400FD5D4B /* CameraView.swift */; };
+		579AEAF323D4A27800FD5D4B /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AEAF223D4A27800FD5D4B /* CameraController.swift */; };
+		579AEAF523D4A57700FD5D4B /* LayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AEAF423D4A57700FD5D4B /* LayerController.swift */; };
+		57FE8E0524B21AE800154285 /* test.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 57FE8E0424B21AE800154285 /* test.PNG */; };
+		5B201AB0269C2706005AB255 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B201AAF269C2706005AB255 /* CHCSVParser.m */; };
+		5B201AB6269DA3E1005AB255 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201AB1269DA3E0005AB255 /* Request.swift */; };
+		5B201AB7269DA3E1005AB255 /* HTTPSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201AB2269DA3E1005AB255 /* HTTPSecurity.swift */; };
+		5B201AB8269DA3E1005AB255 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201AB3269DA3E1005AB255 /* StatusCode.swift */; };
+		5B201AB9269DA3E1005AB255 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201AB4269DA3E1005AB255 /* Operation.swift */; };
+		5B201ABA269DA3E1005AB255 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201AB5269DA3E1005AB255 /* Upload.swift */; };
+		5B201B1C26B97D1C005AB255 /* DepthCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201B1B26B97D1B005AB255 /* DepthCapture.swift */; };
+		5B201B1E26B98CC3005AB255 /* MultiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B201B1D26B98CC3005AB255 /* MultiView.swift */; };
+		5B850FD92692E54600270DB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B850FD82692E54600270DB8 /* ContentView.swift */; };
+		5B850FDB2692E56600270DB8 /* ExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B850FDA2692E56600270DB8 /* ExperimentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		579AEAD923D4A07D00FD5D4B /* Trois-cam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trois-cam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		579AEADC23D4A07D00FD5D4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		579AEADE23D4A07D00FD5D4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		579AEAE023D4A07D00FD5D4B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		579AEAE223D4A08100FD5D4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		579AEAE523D4A08100FD5D4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		579AEAEA23D4A08100FD5D4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		579AEAF023D4A0C400FD5D4B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		579AEAF223D4A27800FD5D4B /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		579AEAF423D4A57700FD5D4B /* LayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerController.swift; sourceTree = "<group>"; };
+		579AEAF623D4E11300FD5D4B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		57FE8E0424B21AE800154285 /* test.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.PNG; sourceTree = "<group>"; };
+		5B201AAD269C2704005AB255 /* Trois-cam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Trois-cam-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B201AAE269C2706005AB255 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		5B201AAF269C2706005AB255 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
+		5B201AB1269DA3E0005AB255 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		5B201AB2269DA3E1005AB255 /* HTTPSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPSecurity.swift; sourceTree = "<group>"; };
+		5B201AB3269DA3E1005AB255 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		5B201AB4269DA3E1005AB255 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		5B201AB5269DA3E1005AB255 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		5B201ABB269DA409005AB255 /* SwiftHTTP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftHTTP.h; sourceTree = "<group>"; };
+		5B201B1B26B97D1B005AB255 /* DepthCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthCapture.swift; sourceTree = "<group>"; };
+		5B201B1D26B98CC3005AB255 /* MultiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiView.swift; sourceTree = "<group>"; };
+		5B850FD82692E54600270DB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5B850FDA2692E56600270DB8 /* ExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		579AEAD623D4A07D00FD5D4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		579AEAD023D4A07D00FD5D4B = {
+			isa = PBXGroup;
+			children = (
+				579AEAF623D4E11300FD5D4B /* README.md */,
+				579AEADB23D4A07D00FD5D4B /* Trois-cam */,
+				579AEADA23D4A07D00FD5D4B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		579AEADA23D4A07D00FD5D4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				579AEAD923D4A07D00FD5D4B /* Trois-cam.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		579AEADB23D4A07D00FD5D4B /* Trois-cam */ = {
+			isa = PBXGroup;
+			children = (
+				579AEADC23D4A07D00FD5D4B /* AppDelegate.swift */,
+				579AEADE23D4A07D00FD5D4B /* SceneDelegate.swift */,
+				579AEAE023D4A07D00FD5D4B /* MainView.swift */,
+				579AEAF223D4A27800FD5D4B /* CameraController.swift */,
+				5B850FDA2692E56600270DB8 /* ExperimentView.swift */,
+				5B201AAE269C2706005AB255 /* CHCSVParser.h */,
+				5B201AAF269C2706005AB255 /* CHCSVParser.m */,
+				5B850FD82692E54600270DB8 /* ContentView.swift */,
+				5B201B1B26B97D1B005AB255 /* DepthCapture.swift */,
+				5B201B1D26B98CC3005AB255 /* MultiView.swift */,
+				5B201AB2269DA3E1005AB255 /* HTTPSecurity.swift */,
+				5B201ABB269DA409005AB255 /* SwiftHTTP.h */,
+				5B201AB4269DA3E1005AB255 /* Operation.swift */,
+				5B201AB1269DA3E0005AB255 /* Request.swift */,
+				5B201AB3269DA3E1005AB255 /* StatusCode.swift */,
+				5B201AB5269DA3E1005AB255 /* Upload.swift */,
+				579AEAF023D4A0C400FD5D4B /* CameraView.swift */,
+				579AEAF423D4A57700FD5D4B /* LayerController.swift */,
+				579AEAE223D4A08100FD5D4B /* Assets.xcassets */,
+				579AEAEA23D4A08100FD5D4B /* Info.plist */,
+				579AEAE423D4A08100FD5D4B /* Preview Content */,
+				5B201AAD269C2704005AB255 /* Trois-cam-Bridging-Header.h */,
+			);
+			path = "Trois-cam";
+			sourceTree = "<group>";
+		};
+		579AEAE423D4A08100FD5D4B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				57FE8E0424B21AE800154285 /* test.PNG */,
+				579AEAE523D4A08100FD5D4B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		579AEAD823D4A07D00FD5D4B /* Trois-cam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 579AEAED23D4A08100FD5D4B /* Build configuration list for PBXNativeTarget "Trois-cam" */;
+			buildPhases = (
+				579AEAD523D4A07D00FD5D4B /* Sources */,
+				579AEAD623D4A07D00FD5D4B /* Frameworks */,
+				579AEAD723D4A07D00FD5D4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trois-cam";
+			productName = "Trois-cam";
+			productReference = 579AEAD923D4A07D00FD5D4B /* Trois-cam.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		579AEAD123D4A07D00FD5D4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Joss Manger";
+				TargetAttributes = {
+					579AEAD823D4A07D00FD5D4B = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1250;
+					};
+				};
+			};
+			buildConfigurationList = 579AEAD423D4A07D00FD5D4B /* Build configuration list for PBXProject "Trois-cam" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 579AEAD023D4A07D00FD5D4B;
+			productRefGroup = 579AEADA23D4A07D00FD5D4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				579AEAD823D4A07D00FD5D4B /* Trois-cam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		579AEAD723D4A07D00FD5D4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57FE8E0524B21AE800154285 /* test.PNG in Resources */,
+				579AEAE623D4A08100FD5D4B /* Preview Assets.xcassets in Resources */,
+				579AEAE323D4A08100FD5D4B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		579AEAD523D4A07D00FD5D4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B201B1E26B98CC3005AB255 /* MultiView.swift in Sources */,
+				5B201ABA269DA3E1005AB255 /* Upload.swift in Sources */,
+				579AEADD23D4A07D00FD5D4B /* AppDelegate.swift in Sources */,
+				579AEADF23D4A07D00FD5D4B /* SceneDelegate.swift in Sources */,
+				5B201AB8269DA3E1005AB255 /* StatusCode.swift in Sources */,
+				5B850FD92692E54600270DB8 /* ContentView.swift in Sources */,
+				5B850FDB2692E56600270DB8 /* ExperimentView.swift in Sources */,
+				579AEAE123D4A07D00FD5D4B /* MainView.swift in Sources */,
+				579AEAF123D4A0C400FD5D4B /* CameraView.swift in Sources */,
+				579AEAF323D4A27800FD5D4B /* CameraController.swift in Sources */,
+				5B201B1C26B97D1C005AB255 /* DepthCapture.swift in Sources */,
+				5B201AB7269DA3E1005AB255 /* HTTPSecurity.swift in Sources */,
+				5B201AB6269DA3E1005AB255 /* Request.swift in Sources */,
+				5B201AB9269DA3E1005AB255 /* Operation.swift in Sources */,
+				579AEAF523D4A57700FD5D4B /* LayerController.swift in Sources */,
+				5B201AB0269C2706005AB255 /* CHCSVParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		579AEAEB23D4A08100FD5D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		579AEAEC23D4A08100FD5D4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		579AEAEE23D4A08100FD5D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Trois-cam/Preview Content\"";
+				DEVELOPMENT_TEAM = P2Y5MQVPSA;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Trois-cam/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.jossy.Trois-cam";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Trois-cam/Trois-cam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		579AEAEF23D4A08100FD5D4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Trois-cam/Preview Content\"";
+				DEVELOPMENT_TEAM = P2Y5MQVPSA;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Trois-cam/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.jossy.Trois-cam";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Trois-cam/Trois-cam-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		579AEAD423D4A07D00FD5D4B /* Build configuration list for PBXProject "Trois-cam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				579AEAEB23D4A08100FD5D4B /* Debug */,
+				579AEAEC23D4A08100FD5D4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		579AEAED23D4A08100FD5D4B /* Build configuration list for PBXNativeTarget "Trois-cam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				579AEAEE23D4A08100FD5D4B /* Debug */,
+				579AEAEF23D4A08100FD5D4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 579AEAD123D4A07D00FD5D4B /* Project object */;
+}

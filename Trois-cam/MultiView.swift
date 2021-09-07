@@ -15,7 +15,7 @@ import CoreMotion
 import SensorKit
 
 
-let RTime = 10
+let RTime = 90
 let subNet = "101"
 
 let motion = CMMotionManager()
@@ -88,9 +88,8 @@ struct MultiView: View{
             Button(action: {toggleTorch(on: true);},label:{Text("Flash")})
             Text("Time:\(timeRemaining)")
             Button(action: {manualISO();manualISOBack();selectedMode="Manual"},label:{Text("manual")})
-            Button(action: {autoISO();selectedMode = "Auto"},label:{Text("auto")})
-            
-            Button(action:{start = true;toggleTorch(on: true) ;manualISOBack();frontURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + frontName);fingerURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr+fingerName);accURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + accName);gyroURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + gyroName);magneURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + magneName);waveURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + waveName);audioURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + audioName);depthURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + depthName);cameraSource.prepareDepth();
+
+            Button(action:{start = true;mkdirectory(ID + ExperimentStr);frontURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + frontName);fingerURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr+fingerName);accURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + accName);gyroURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + gyroName);magneURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + magneName);waveURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + waveName);audioURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + audioName);depthURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + depthName);cameraSource.prepareDepth();
                     urlConnection(u: "http://192.168.1." + subNet + ":5000"); urlConnection(u: "http://192.168.1." + subNet + ":5000/upload");frontdispatch.async {
                         cameraSource.startRecord();
                     }; backdispatch.async {
@@ -182,23 +181,7 @@ func manualISO()
     }
 }
 
-func autoISO()
-{
-    guard let device = AVCaptureDevice.default(.builtInTrueDepthCamera,for: .video, position: .front) else { return }
-    
-    
-    do {
-        try device.lockForConfiguration()
-        
-        device.exposureMode = .autoExpose
-        device.whiteBalanceMode = .autoWhiteBalance
-        
-        device.unlockForConfiguration()
-    } catch {
-        print("Torch could not be used")
-    }
-    
-}
+
 func manualISOBack()
 {
     
@@ -208,11 +191,11 @@ func manualISOBack()
     do {
         try device.lockForConfiguration()
         device.exposureMode = .locked
-        device.exposureMode = .custom
-        device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
+//        device.exposureMode = .custom
+//        device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
         device.whiteBalanceMode = .locked
         device.focusMode = .locked
-        let fps60 = CMTimeMake(value: 1, timescale: 60)
+        let fps60 = CMTimeMake(value: 1, timescale: 30)
         device.activeVideoMinFrameDuration = fps60;
         device.activeVideoMaxFrameDuration = fps60;
       
@@ -366,8 +349,12 @@ func enum2String(e: Experiments) -> String{
     switch e {
     case Experiments.Natural_Stationary:
         return "/Natural Stationary"
-    case Experiments.LED_Stationary:
-        return "/Led Stationary"
+    case Experiments.LED_Stationary_220:
+        return "/Led Stationary 220"
+    case Experiments.LED_Stationary_110:
+        return "/Led Stationary 110"
+    case Experiments.LED_Stationary_55:
+        return "/Led Stationary 55"
     case Experiments.Playground:
         return "/Playground"
     case Experiments.Randomly:
@@ -378,8 +365,14 @@ func enum2String(e: Experiments) -> String{
         return "/Talking"
     case Experiments.Running:
         return "/Running"
-    case Experiments.Incandescent_Stationary:
-        return "/Incandescent Stationary"
+    case Experiments.Natural_Typing:
+        return "/Natural Typing"
+    case Experiments.Incandescent_Stationary_220:
+        return "/Incandescent Stationary 220"
+    case Experiments.Incandescent_Stationary_110:
+        return "/Incandescent Stationary 110"
+    case Experiments.Incandescent_Stationary_55:
+        return "/Incandescent Stationary 55"
     default:
         break
     }
@@ -402,3 +395,16 @@ func stopDataCollection() {
     motion.stopAccelerometerUpdates()
 }
 
+func mkdirectory(_ back:String){
+    let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+    let documentsDirectory = paths[0]
+    let docURL = URL(string: documentsDirectory)!
+    let dataPath = docURL.appendingPathComponent(back)
+    if !FileManager.default.fileExists(atPath: dataPath.path) {
+        do {
+            try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}

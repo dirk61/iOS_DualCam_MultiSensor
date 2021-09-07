@@ -247,9 +247,9 @@ class CameraController:NSObject, AVCaptureFileOutputRecordingDelegate, AVCapture
 //            print(String(i) + ": " + device2.formats[i].description)
 //        }
 //
-//        for i in 0..<device1.formats.count{
-//            print(String(i) + ": " + device1.formats[i].description)
-//        }
+        for i in 0..<device1.formats.count{
+            print(String(i) + ": " + device1.formats[i].description)
+        }
 
 //
         do {
@@ -260,6 +260,7 @@ class CameraController:NSObject, AVCaptureFileOutputRecordingDelegate, AVCapture
             let fps60 = CMTimeMake(value: 1, timescale: 60)
             device2.activeVideoMinFrameDuration = fps60;
             device2.activeVideoMaxFrameDuration = fps60;
+            
             device2.unlockForConfiguration()
             
         } catch {
@@ -267,18 +268,18 @@ class CameraController:NSObject, AVCaptureFileOutputRecordingDelegate, AVCapture
             
         }
         
-        do {
-            try device1.lockForConfiguration()
-
-            device1.activeFormat = device1.formats[8]
-            let fps60 = CMTimeMake(value: 1, timescale: 60)
-            device1.activeVideoMinFrameDuration = fps60;
-            device1.activeVideoMaxFrameDuration = fps60;
-            device1.unlockForConfiguration()
-        } catch {
-            print("Could not lock device for configuration: \(error)")
-
-        }
+//        do {
+//            try device1.lockForConfiguration()
+//
+//            device1.activeFormat = device1.formats[18]
+//            let fps60 = CMTimeMake(value: 1, timescale: 60)
+//            device1.activeVideoMinFrameDuration = fps60;
+//            device1.activeVideoMaxFrameDuration = fps60;
+//            device1.unlockForConfiguration()
+//        } catch {
+//            print("Could not lock device for configuration: \(error)")
+//
+//        }
         print(device1.activeFormat)
         print(device2.activeFormat)
         session.addOutput(output)

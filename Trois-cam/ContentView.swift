@@ -18,11 +18,16 @@ var ExperimentStr = ""
 
 enum Experiments: String, CaseIterable, Identifiable{
     case Playground
+    case LED_Stationary_220
+    case LED_Stationary_110
+    case LED_Stationary_55
+    case Incandescent_Stationary_220
+    case Incandescent_Stationary_110
+    case Incandescent_Stationary_55
     case Natural_Stationary
-    case LED_Stationary
-    case Incandescent_Stationary
-    case Left_Right
+    case Natural_Typing
     case Randomly
+    case Left_Right
     case Talking
     case Running
     
@@ -59,14 +64,22 @@ struct ContentView: View{
     var body: some View {
         VStack{
             Picker("Experiment", selection:$selectedExperiment){
+                Group{
                 Text("Playground").tag(Experiments.Playground)
+                Text("LED Stationary 220").tag(Experiments.LED_Stationary_220)
+                Text("LED Stationary 110").tag(Experiments.LED_Stationary_110)
+                Text("LED Stationary 55").tag(Experiments.LED_Stationary_55)
+                Text("Incandescent Stationary 220").tag(Experiments.Incandescent_Stationary_220)
+                }
+                Text("Incandescent Stationary 110").tag(Experiments.Incandescent_Stationary_110)
+                Text("Incandescent Stationary 55").tag(Experiments.Incandescent_Stationary_55)
                 Text("Natural Stationary").tag(Experiments.Natural_Stationary)
-                Text("LED Stationary").tag(Experiments.LED_Stationary)
-                Text("Incandescent Stationary").tag(Experiments.Incandescent_Stationary)
+                Text("Natural Typing").tag(Experiments.Natural_Typing)
                 Text("Randomly").tag(Experiments.Randomly)
                 Text("Left Right").tag(Experiments.Left_Right)
                 Text("Talking").tag(Experiments.Talking)
                 Text("Running").tag(Experiments.Running)
+                
             }
             Text("Selected:\(selectedExperiment.rawValue)")
 

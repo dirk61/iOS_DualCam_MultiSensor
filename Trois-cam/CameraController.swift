@@ -267,19 +267,20 @@ class CameraController:NSObject, AVCaptureFileOutputRecordingDelegate, AVCapture
             print("Could not lock device for configuration: \(error)")
             
         }
+//
+        do {
+            try device1.lockForConfiguration()
+
+            device1.activeFormat = device1.formats[24]
+            let fps60 = CMTimeMake(value: 1, timescale: 30)
+            device1.activeVideoMinFrameDuration = fps60;
+            device1.activeVideoMaxFrameDuration = fps60;
+            device1.unlockForConfiguration()
+        } catch {
+            print("Could not lock device for configuration: \(error)")
+
+        }
         
-//        do {
-//            try device1.lockForConfiguration()
-//
-//            device1.activeFormat = device1.formats[18]
-//            let fps60 = CMTimeMake(value: 1, timescale: 60)
-//            device1.activeVideoMinFrameDuration = fps60;
-//            device1.activeVideoMaxFrameDuration = fps60;
-//            device1.unlockForConfiguration()
-//        } catch {
-//            print("Could not lock device for configuration: \(error)")
-//
-//        }
         print(device1.activeFormat)
         print(device2.activeFormat)
         session.addOutput(output)

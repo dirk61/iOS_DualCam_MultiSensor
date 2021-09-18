@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		579AEAD923D4A07D00FD5D4B /* Trois-cam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trois-cam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		579AEAD923D4A07D00FD5D4B /* MobilePhys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePhys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		579AEADC23D4A07D00FD5D4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		579AEADE23D4A07D00FD5D4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		579AEAE023D4A07D00FD5D4B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		579AEADA23D4A07D00FD5D4B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				579AEAD923D4A07D00FD5D4B /* Trois-cam.app */,
+				579AEAD923D4A07D00FD5D4B /* MobilePhys.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			);
 			name = "Trois-cam";
 			productName = "Trois-cam";
-			productReference = 579AEAD923D4A07D00FD5D4B /* Trois-cam.app */;
+			productReference = 579AEAD923D4A07D00FD5D4B /* MobilePhys.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -345,7 +345,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.jossy.Trois-cam";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MobilePhys;
 				SWIFT_OBJC_BRIDGING_HEADER = "Trois-cam/Trois-cam-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -368,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.jossy.Trois-cam";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MobilePhys;
 				SWIFT_OBJC_BRIDGING_HEADER = "Trois-cam/Trois-cam-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -193,7 +193,7 @@ func manualISOBack()
         device.exposureMode = .locked
 //        device.exposureMode = .custom
 //        device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
-        device.whiteBalanceMode = .locked
+//        device.whiteBalanceMode = .locked
         device.focusMode = .locked
         let fps60 = CMTimeMake(value: 1, timescale: 30)
         device.activeVideoMinFrameDuration = fps60;

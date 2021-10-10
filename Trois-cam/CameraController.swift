@@ -250,6 +250,10 @@ class CameraController:NSObject, AVCaptureFileOutputRecordingDelegate, AVCapture
         for i in 0..<device1.formats.count{
             print(String(i) + ": " + device1.formats[i].description)
         }
+        
+        for i in 0..<device1.formats.count{
+            print(String(i) + ": " + device1.formats[i].description)
+        }
 
 //
         do {

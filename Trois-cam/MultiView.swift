@@ -22,6 +22,7 @@ let motion = CMMotionManager()
 var exp = ""
 let ID2 = "01"
 let ID = "01/Data"
+let metaID = "01/Meta"
 let accName = "/Accelerometer.csv"
 let gyroName = "/GyroScope.csv"
 let magneName = "/Magnenometer.csv"
@@ -87,9 +88,10 @@ struct MultiView: View{
             
             Button(action: {toggleTorch(on: true);},label:{Text("Flash")})
             Text("Time:\(timeRemaining)")
+            Button(action: {autoISOBack();selectedMode="Auto"},label:{Text("Auto")})
             Button(action: {manualISO();manualISOBack();selectedMode="Manual"},label:{Text("manual")})
 
-            Button(action:{start = true;mkdirectory(ID + ExperimentStr);frontURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + frontName);fingerURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr+fingerName);accURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + accName);gyroURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + gyroName);magneURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + magneName);waveURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + waveName);audioURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + audioName);depthURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + depthName);cameraSource.prepareDepth();
+            Button(action:{start = true;mkdirectory(ID + ExperimentStr);mkdirectory(metaID+ExperimentStr);frontURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + frontName);fingerURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr+fingerName);accURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + accName);gyroURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + gyroName);magneURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + magneName);waveURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + waveName);audioURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + audioName);depthURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + depthName);cameraSource.prepareDepth();
                     urlConnection(u: "http://192.168.1." + subNet + ":5000"); urlConnection(u: "http://192.168.1." + subNet + ":5000/upload");frontdispatch.async {
                         cameraSource.startRecord();
                     }; backdispatch.async {
@@ -171,7 +173,7 @@ func manualISO()
         device.exposureMode = .custom
         device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
         device.whiteBalanceMode = .locked
-        let fps60 = CMTimeMake(value: 1, timescale: 60)
+        let fps60 = CMTimeMake(value: 1, timescale: 30)
         device.activeVideoMinFrameDuration = fps60;
         device.activeVideoMaxFrameDuration = fps60;
         
@@ -193,7 +195,7 @@ func manualISOBack()
         device.exposureMode = .locked
 //        device.exposureMode = .custom
 //        device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
-//        device.whiteBalanceMode = .locked
+        device.whiteBalanceMode = .locked
         device.focusMode = .locked
         let fps60 = CMTimeMake(value: 1, timescale: 30)
         device.activeVideoMinFrameDuration = fps60;
@@ -215,7 +217,8 @@ func autoISOBack()
         try device.lockForConfiguration()
         
         device.exposureMode = .autoExpose
-        
+        device.whiteBalanceMode = .autoWhiteBalance
+        device.focusMode = .autoFocus
         device.unlockForConfiguration()
     } catch {
         print("Torch could not be used")

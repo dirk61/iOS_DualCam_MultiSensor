@@ -344,7 +344,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.jossy.Trois-cam";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.mobilephhys;
 				PRODUCT_NAME = MobilePhys;
 				SWIFT_OBJC_BRIDGING_HEADER = "Trois-cam/Trois-cam-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -367,7 +367,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.jossy.Trois-cam";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.mobilephhys;
 				PRODUCT_NAME = MobilePhys;
 				SWIFT_OBJC_BRIDGING_HEADER = "Trois-cam/Trois-cam-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

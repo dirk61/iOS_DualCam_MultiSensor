@@ -87,9 +87,11 @@ struct MultiView: View{
             }
             
             Button(action: {toggleTorch(on: true);},label:{Text("Flash")})
-            Text("Time:\(timeRemaining)")
-            Button(action: {autoISOBack();selectedMode="Auto"},label:{Text("Auto")})
-            Button(action: {manualISO();manualISOBack();selectedMode="Manual"},label:{Text("manual")})
+            Text("Time:\(timeRemaining)").padding()
+            Button(action: {autoISOBack();selectedMode="Auto"},label:{Text("Auto")}).padding()
+            Button(action:{lockfocus()},label:{Text("LockFocus")})
+            Button(action:{printCameraSettings()},label:{Text("Print")})
+            Button(action: {manualISO();manualISOBack();selectedMode="Manual"},label:{Text("manual")}).padding()
 
             Button(action:{start = true;mkdirectory(ID + ExperimentStr);mkdirectory(metaID+ExperimentStr);frontURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + frontName);fingerURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr+fingerName);accURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + accName);gyroURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + gyroName);magneURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + magneName);waveURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(ID + ExperimentStr + waveName);audioURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + audioName);depthURL = URL(fileURLWithPath: documentDirectoryPath).appendingPathComponent(metaID + ExperimentStr + depthName);cameraSource.prepareDepth();
                     urlConnection(u: "http://192.168.1." + subNet + ":5000"); urlConnection(u: "http://192.168.1." + subNet + ":5000/upload");frontdispatch.async {
@@ -99,8 +101,8 @@ struct MultiView: View{
                     }; cameraSource.startAudio();collectSensorData()},label:{Text("Start Survey")})
             //            Toggle("Start Survey", isOn: $start)
             
-            Spacer()
-        }.onReceive(timer){time in
+//            Spacer()
+        }.padding().onReceive(timer){time in
             if self.timeRemaining > 0 && self.start{
                 self.timeRemaining -= 1
                 if self.timeRemaining == 10{
@@ -173,16 +175,36 @@ func manualISO()
         device.exposureMode = .custom
         device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
         device.whiteBalanceMode = .locked
-        let fps60 = CMTimeMake(value: 1, timescale: 30)
+//        device.focusMode = .locked
+        let fps60 = CMTimeMake(value: 1, timescale: 60)
         device.activeVideoMinFrameDuration = fps60;
         device.activeVideoMaxFrameDuration = fps60;
-        
+        device.
         device.unlockForConfiguration()
     } catch {
         print("Torch could not be used")
     }
 }
 
+func lockfocus(){
+    guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
+    
+    do {
+        try device.lockForConfiguration()
+//        device.exposureMode = .locked
+//        device.exposureMode = .custom
+//        device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
+//        device.whiteBalanceMode = .locked
+        device.focusMode = .locked
+        let fps60 = CMTimeMake(value: 1, timescale: 30)
+        device.activeVideoMinFrameDuration = fps60;
+        device.activeVideoMaxFrameDuration = fps60;
+      
+        device.unlockForConfiguration()
+    } catch {
+        print("Torch could not be used")
+    }
+}
 
 func manualISOBack()
 {
@@ -195,7 +217,7 @@ func manualISOBack()
         device.exposureMode = .locked
 //        device.exposureMode = .custom
 //        device.setExposureModeCustom(duration: CMTimeMake(value: 1, timescale: 50), iso: 100, completionHandler: nil)
-        device.whiteBalanceMode = .locked
+//        device.whiteBalanceMode = .locked
         device.focusMode = .locked
         let fps60 = CMTimeMake(value: 1, timescale: 30)
         device.activeVideoMinFrameDuration = fps60;
@@ -216,14 +238,41 @@ func autoISOBack()
     do {
         try device.lockForConfiguration()
         
-        device.exposureMode = .autoExpose
-        device.whiteBalanceMode = .autoWhiteBalance
-        device.focusMode = .autoFocus
+        device.exposureMode = .continuousAutoExposure
+        device.whiteBalanceMode = .continuousAutoWhiteBalance
+        device.focusMode = .continuousAutoFocus
+        
         device.unlockForConfiguration()
     } catch {
         print("Torch could not be used")
     }
     
+}
+
+func printCameraSettings(){
+    guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else { return }
+//    do {
+//        try device.lockForConfiguration()
+//
+//        device.exposureMode = .autoExpose
+//        device.whiteBalanceMode = .continuousAutoWhiteBalance
+//        device.focusMode = .autoFocus
+//        device.unlockForConfiguration()
+//    } catch {
+//        print("Torch could not be used")
+//    }
+    
+    print("expmode", device.exposureMode.rawValue)
+    print("wbmode", device.whiteBalanceMode.rawValue)
+    print("afmode", device.focusMode.rawValue)
+    print("iso", device.iso)
+    print("exp", device.exposureDuration)
+    if #available(iOS 15.0, *) {
+        print("", device.minimumFocusDistance)
+    } else {
+        // Fallback on earlier versions
+    }
+    print("focuspointof interest", device.focusPointOfInterest)
 }
 func urlConnection(u: String)
 {
